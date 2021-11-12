@@ -10,7 +10,7 @@
   </head>
 
   <body>
-    <div class="p-3 mb-2 bg-danger text-black-50">
+    <div class="p-3 mb-2 bg-danger text-black">
      <% flash.each do |key, value| %>
         <%= content_tag(:div, value, class: "#{key}") %>
       <% end %>
