@@ -6,6 +6,8 @@ gem 'rails', '~> 6.0.3'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 4.1'
 gem 'sass-rails', '>= 6'
+gem 'uglifier'
+gem 'coffee-rails'
 gem 'webpacker', '~> 4.0'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
@@ -23,7 +25,6 @@ group :development do
   gem 'listen', '~> 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'letter_opener_web'
 end
 
 group :test do
@@ -35,3 +36,11 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'rexml'
+
+gem 'faker'
+
+gem 'letter_opener_web'
+
+gem 'pry-rails'
+gem 'better_errors'
+gem 'binding_of_caller'

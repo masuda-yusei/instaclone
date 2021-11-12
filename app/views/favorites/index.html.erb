@@ -1,0 +1,16 @@
+<h1>Favorites list</h1>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Image</th>
+    <th>Content</th>
+  </tr>
+  <% @favorite.each do |favorite| %>
+    <tr>
+      <td><%= favorite.picture.user.name %></td>
+      <td><%= image_tag(favorite.picture.image.url ) %></td>
+      <td><%= favorite.picture.content %></td>
+      <td><%= link_to 'Show', picture_path(favorite.picture.id) %></td>
+    </tr>
+  <% end %>
+</table>

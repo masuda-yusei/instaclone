@@ -1,4 +1,12 @@
 <h1><%= @user.name %>のページ</h1>
 <p>メールアドレス: <%= @user.email %></p>
-<%= link_to '新しく投稿する', new_picture_path %>
+
+<p>
+   <strong>Image:</strong>
+   <%= image_tag @user.image.url %>
+</p>
+<%= link_to '新規投稿', new_picture_path %>
+<br>
+<%= link_to 'お気に入りリスト', favorites_path(@user) %>
+<br>
 <%= link_to '一覧', pictures_path %>

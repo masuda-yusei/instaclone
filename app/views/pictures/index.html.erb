@@ -1,5 +1,5 @@
 <div class="p-3 mb-2 bg-secondary text-white">
-<p id="notice"><%= notice %></p>
+<p id="notice">
 
 <h1>Pictures</h1>
 
@@ -24,8 +24,10 @@
         <td><%= picture.content %></td>
         <td><%= image_tag picture.image.url %></td>
         <td><%= link_to 'Show', picture_path(picture.id) %></td>
-        <td><%= link_to 'Edit', edit_picture_path(picture.id) %></td>
-        <td><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if picture.user_id == current_user.id %>
+        <td><%= link_to 'Edit', edit_picture_path(picture.id), data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', picture_path(picture.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

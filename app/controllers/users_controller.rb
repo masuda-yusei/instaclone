@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[ show edit update destroy ]  
-  skip_before_action :login_required, only: [:new, :create]
-  before_action :already_logged_in, only: [:new, :create]
-  # before_action :set_user, only: %i[ show edit update destroy ]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  skip_before_action :login_required, only: [:new, :create, :update, :destroy ]
+  before_action :already_logged_in, only: [:edit, :update, :destroy]
 
   # GET /users or /users.json
   def index
@@ -27,7 +26,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to user_path(@user.id)
+      redirect_to pictures_path, notice: "User was successfully saved."
     else
       render :new
     end
@@ -63,6 +62,12 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :image, :image_cache)
+  end
+
+  def already_logged_in
+    if current_user.id != @user.id
+      redirect_to user_path
+    end
   end
 end

@@ -5,8 +5,8 @@
   <%= form.hidden_field :content %>
   <%= form.hidden_field :image_cache %>
   <p>ID:<%= @picture.user_id %></p>
-  <p>タイトル:<%= @picture.title %></p>
-  <p>本文:<%= @picture.content %></p>
+  <p>Title:<%= @picture.title %></p>
+  <p>Content:<%= @picture.content %></p>
   <p>Image:<%= image_tag @picture.image.url %></p>
   <%= form.submit  "登録する" %>
   <%= form.submit "戻る", name: 'back' %>
