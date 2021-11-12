@@ -10,21 +10,21 @@
   </head>
 
   <body>
-  <nav class="navbar navbar-dark bg-success mb-2">
-   <% flash.each do |key, value| %>
-      <%= content_tag(:div, value, class: "#{key}") %>
-    <% end %>
-    <% if logged_in? %>
-      <%= link_to "Profile", user_path(current_user.id) %>
-      <%= link_to "Logout", session_path(current_user.id), method: :delete %>
-    <% else %>
-      <%= link_to "Sign up", new_user_path %>
-      <%= link_to "Login", new_session_path %>
-    <% end %>
-    <% if logged_in? %>
-      <p class="login">Logged in as <strong> <%= link_to current_user.name, user_path(current_user.id) %></strong></p>
-    <% end %>
-    <%= yield %>
-  </nav>
+    <div class="p-3 mb-2 bg-danger text-black-50">
+     <% flash.each do |key, value| %>
+        <%= content_tag(:div, value, class: "#{key}") %>
+      <% end %>
+      <% if logged_in? %>
+        <%= link_to "Profile", user_path(current_user.id) %>
+        <%= link_to "Logout", session_path(current_user.id), method: :delete %>
+      <% else %>
+        <%= link_to "Sign up", new_user_path %>
+        <%= link_to "Login", new_session_path %>
+      <% end %>
+      <% if logged_in? %>
+        <p class="login">Logged in as <strong> <%= link_to current_user.name, user_path(current_user.id) %></strong></p>
+      <% end %>
+      <%= yield %>
+    </div>
   </body>
 </html>
